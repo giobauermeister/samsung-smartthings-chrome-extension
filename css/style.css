@@ -1,0 +1,82 @@
+html, body {
+    width: 350px;  /* Set desired width */
+    height: 500px; /* Set desired height */
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden; /* Prevent scrolling */
+    background: linear-gradient(240deg, #478eaf 20%, #73b4cf 50%, #ffcbd3 100%, #ffc8d0 100%);
+}
+
+.popup {
+    padding: 20px;
+}
+
+h1 {
+    color: white;
+}
+
+.header {
+    margin-top: -5px;
+    display: flex;
+    align-items: center; /* Aligns items vertically in the center */
+    padding: 0px;
+}
+
+.header-image {
+    width: 50px; /* Image will resize proportionally based on width */
+    height: auto;
+    margin-right: 10px;
+}
+
+.p-devices {
+    color: white;
+    font-size: large;
+}
+
+/* Navigation bar styling */
+.tab-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0f0f0;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center image and text inside button */
+}
+
+.tab:hover {
+    background-color: #e0e0e0;
+}
+  
+.tab:click {
+    outline: none;
+    background-color: #d0d0d0;
+}
+
+/* Add a border between the two buttons */
+#settings-tab {
+    border-left: 1px solid #ccc; /* Thin gray line between the buttons */
+}
+
+/* Icon styling */
+.icon {
+    width: 20px;  /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    margin-right: 8px; /* Space between icon and text */
+}
