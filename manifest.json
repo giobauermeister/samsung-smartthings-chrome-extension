@@ -3,6 +3,7 @@
     "name": "Samsung Smartthings",
     "description": "Control Samsung Smartthings Devices",
     "version": "1.0",
+    "permissions": ["tabs", "storage"],
     "icons": {
         "120": "icons/icon120.png",
         "300": "icons/icon300.png"

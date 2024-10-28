@@ -32,6 +32,18 @@ h1 {
 .p-devices {
     color: white;
     font-size: large;
+    font-weight: bold;
+}
+
+.p-settings {
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+
+.p-token {
+    color: white;
+    font-size: medium;
 }
 
 /* Navigation bar styling */
@@ -43,13 +55,16 @@ h1 {
     display: flex;
     justify-content: space-around;
     background-color: #f0f0f0;
-    padding: 10px 0;
+    /* padding: 10px 0; */
     border-top: 1px solid #ccc;
 }
 
 .tab {
     flex: 1;
-    padding: 10px;
+    margin: 0;
+    padding: 4px;
+    width: 100%;           /* Ensures button occupies full width */
+    height: 100%;           /* Ensures button occupies full height */
     border: none;
     background-color: transparent;
     font-size: 16px;
@@ -64,9 +79,9 @@ h1 {
     background-color: #e0e0e0;
 }
   
-.tab:click {
+.tab:active {
     outline: none;
-    background-color: #d0d0d0;
+    background-color: #d0d0d0; /* Change to a darker color while button is pressed */
 }
 
 /* Add a border between the two buttons */
@@ -76,7 +91,42 @@ h1 {
 
 /* Icon styling */
 .icon {
+    padding: 10px;
     width: 20px;  /* Adjust as needed */
     height: 20px; /* Adjust as needed */
-    margin-right: 8px; /* Space between icon and text */
+    margin-right: 0px; /* Space between icon and text */
+}
+
+/* Container to hold both screens side by side */
+.screen-container {
+    display: flex;
+    width: 215%; /* Twice the width to fit both screens side by side */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for sliding */
+}
+
+/* Style each screen to take up half of the container */
+.screen {
+    width: 50%; /* Each screen takes up half of the container */
+    flex-shrink: 0; /* Prevents screens from shrinking */
+    /* padding: 20px; */
+    box-sizing: border-box;
+}
+
+.input-token {
+    width: 80%;
+    margin-top: -5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+/* Input focus effect */
+.input-token:focus {
+    border-color: #007bff; /* Change border color on focus */
+    background-color: #fff; /* Lighten background color on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2); /* Subtle shadow on focus */
 }
