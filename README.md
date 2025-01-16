@@ -1,4 +1,4 @@
-# Samsung Smartthings Chrome Extension
+# Samsung SmartThings Chrome Extension
 
 Control Smasung Smartthings devices from a chrome extension
 

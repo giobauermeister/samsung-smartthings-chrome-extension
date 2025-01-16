@@ -1,4 +1,4 @@
-console.log("Samsung Smartthings")
+console.log("Samsung SmartThings")
 
 document.getElementById("devices-tab").addEventListener("click", function() {
     // Move the screen container to show the Devices screen
@@ -26,17 +26,78 @@ document.getElementById("token-link").addEventListener("click", function(event) 
 // Get a reference to the input field
 const inputFieldToken = document.getElementById("input-token");
 
+async function fetchDevices(apiToken) {
+  try {
+      const response = await fetch("https://api.smartthings.com/v1/devices", {
+          method: "GET",
+          headers: {
+              "Authorization": `Bearer ${apiToken}`, // Add the token here
+              "Content-Type": "application/json"
+          }
+      });
+
+      if (!response.ok) {
+          throw new Error(`Error: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json(); // Parse JSON response
+      console.log("Devices:", data); // Log the response for debugging
+      return data; // Return the JSON data
+  } catch (error) {
+      console.error("Failed to fetch devices:", error);
+      return null; // Handle errors appropriately
+  }
+}
+
+// Helper function to validate token
+async function validateToken(token) {
+  try {
+      // Make a simple API request to check if the token is valid
+      const response = await fetch("https://api.smartthings.com/v1/devices", {
+          headers: {
+              Authorization: `Bearer ${token}`
+          }
+      });
+
+      if (response.ok) {
+          console.log("token is valid");
+          console.log(response.json);
+          document.getElementById("token-status-message").textContent = "Token is valid!";
+          return true;
+      } else {
+          console.log("invalid token");
+          document.getElementById("token-status-message").textContent = "Invalid token.";
+          return false;
+      }
+  } catch (error) {
+      console.error("Error validating token:", error);
+      return false;
+  }
+}
+
 // Restore the saved value when the popup loads
 document.addEventListener("DOMContentLoaded", () => {
-    chrome.storage.local.get(["apiTokenValue"], (result) => {
+    chrome.storage.local.get(["apiTokenValue"], async (result) => {
       if (result.apiTokenValue) {
         inputFieldToken.value = result.apiTokenValue;
+        await validateToken(result.apiTokenValue);
+
+        const devicesData = await fetchDevices(result.apiTokenValue);
+        if (devicesData) {
+            // Process and display the devices in the UI here
+        }
+
+      } else {
+        console.log("First configure API token in settings");
+        document.getElementById("devices-message").textContent = "First configure API token in settings";
       }
     });
 });
 
 // Save the value whenever it changes
-inputFieldToken.addEventListener("input", () => {
-    const value = inputFieldToken.value;
-    chrome.storage.local.set({ apiTokenValue: value });
+inputFieldToken.addEventListener("input", async () => {
+    const token = inputFieldToken.value;
+    chrome.storage.local.set({ apiTokenValue: token });
+    // document.getElementById("token-status-message").textContent = "Token status";
+    await validateToken(token);
 });

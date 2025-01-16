@@ -1,9 +1,12 @@
 {
     "manifest_version": 3,
-    "name": "Samsung Smartthings",
-    "description": "Control Samsung Smartthings Devices",
+    "name": "Samsung SmartThings",
+    "description": "Control Samsung SmartThings Devices",
     "version": "1.0",
     "permissions": ["tabs", "storage"],
+    "host_permissions": [
+        "https://api.smartthings.com/*"
+    ],
     "icons": {
         "120": "icons/icon120.png",
         "300": "icons/icon300.png"
