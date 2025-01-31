@@ -1,4 +1,4 @@
-# Samsung Smartthings Chrome Extension (WIP)
+# Samsung SmartThings Chrome Extension (WIP)
 
 Control Smasung Smartthings devices from a chrome extension.
 

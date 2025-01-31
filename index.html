@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samsung Smartthings</title>
+    <title>Samsung SmartThings</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
@@ -11,7 +11,7 @@
     <div class="popup">
         <header class="header">
             <img src="icons/icon120.png" class="header-image">
-            <h1>Smartthings</h1>
+            <h1>SmartThings</h1>
         </header>
 
         <div class="device-container">
@@ -22,7 +22,7 @@
             <!-- Devices Screen -->
             <div id="devices-screen" class="screen">
                 <p class="p-devices">Devices</p>
-                <p style="font-size: medium;">This is the content for the Devices screen.</p>
+                <p id="devices-message" style="font-size: medium;">This is the content for the Devices screen.</p>
             </div>
 
             <!-- Settings Screen -->
@@ -30,9 +30,10 @@
                 <p class="p-settings">Settings</p>
                 <p class="p-token">API Token</p>
                 <input class="input-token" id="input-token" type="text" placeholder="Paste token here">
+                <p id="token-status-message" style="color: white; font-size: medium;"></p>
                 <p style="color: white; font-size: small;">You can create Smartthings API Token at: <a href="https://account.smartthings.com/tokens" id="token-link">https://account.smartthings.com/tokens</a></p>
             </div>
-        </div>    
+        </div>
         
     </div>
 
