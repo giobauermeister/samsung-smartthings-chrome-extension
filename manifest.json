@@ -17,5 +17,11 @@
             "120": "icons/icon120.png",
             "300": "icons/icon300.png"
         }
-    }
+    },
+    "web_accessible_resources": [
+        {
+          "resources": ["js/lottie.min.js", "lottie/AC_on.json"],
+          "matches": ["<all_urls>"]
+        }
+    ]
 }

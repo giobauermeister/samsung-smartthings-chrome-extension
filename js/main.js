@@ -26,6 +26,14 @@ document.getElementById("token-link").addEventListener("click", function(event) 
 // Get a reference to the input field
 const inputFieldToken = document.getElementById("input-token");
 
+var animation = lottie.loadAnimation({
+    container: document.getElementById('lottie-container'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: chrome.runtime.getURL('lottie/AC_on.json')
+});  
+
 async function fetchDevices(apiToken) {
   try {
       const response = await fetch("https://api.smartthings.com/v1/devices", {
