@@ -82,9 +82,18 @@ document.addEventListener("DOMContentLoaded", () => {
         inputFieldToken.value = result.apiTokenValue;
         await validateToken(result.apiTokenValue);
 
+        var countACDevices = 0;
         const devicesData = await fetchDevices(result.apiTokenValue);
         if (devicesData) {
             // Process and display the devices in the UI here
+            
+            devicesData.items.forEach(element => {
+                console.log(element.deviceTypeName);
+                if (element.deviceTypeName === "Samsung OCF Air Conditioner") {
+                    countACDevices+=1;
+                }
+            });
+            console.log(`Found ${countACDevices} Air Conditioner Devices`);            
         }
 
       } else {
